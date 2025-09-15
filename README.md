@@ -1,1 +1,3 @@
 Timeclock App
+
+This app was written around 2015 and was back during a time when jQuery reigned supreme. Of course now jQuery is considered legacy so do with that what you will. This app was written as a simple timeclock app that takes advantage of jquery ui's awesome (at the time) tools like dialog boxes and a datepicker. There's basically not consideration around security. It does not have multi-user support. It's purpose was for me to use as a personal, simple time tracking tool. It could be over-hauled to make use of modern libraries like react or vue and an authentication system that enables multi-user support. However, maybe one day I'll do that. For now, it work as-is out of the box so it's frozen in time for now.
