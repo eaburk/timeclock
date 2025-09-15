@@ -72,8 +72,8 @@
 			}
 
         </style>
-		<script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-    <script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.11.1/jquery-ui.min.js"></script>
+		<script src="js/jquery.js"></script>
+    <script src="js/jquery.ui.js"></script>
 		<script src="js/formatDate.js"></script>
 		<script src="js/jquery.contextmenu.js"></script>
 		<script src="js/jquery.cookie.js"></script>
