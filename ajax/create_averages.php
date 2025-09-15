@@ -10,7 +10,7 @@
 
 	include("../includes/db_cnx.php");
 
-	($_GET["work_week"] > 0)? define(WORK_WEEK,$_GET['work_week']): define(WORK_WEEK,45);
+	($_GET["work_week"] > 0)? define("WORK_WEEK",$_GET['work_week']): define("WORK_WEEK",45);
 ?>
 		<table cellspacing='0' cellpadding='5' width='650'>
 			<tr><td>Based on a work week of <?PHP echo WORK_WEEK; ?> hours</td></tr>
@@ -57,6 +57,8 @@
 	$weeks_ary=build_weeks_array();
 	$zero_week=0;
 	$j=0;
+  $tot_hrs = 0;
+  $tot_act_plus_minus_minutes = 0;
 	for($i=0;$i<count($weeks_ary);$i++){
 		$sd_tms=date("Y-m-d",$weeks_ary[$i]["start"])." 00:00:00";
 		$ed_tms=date("Y-m-d",$weeks_ary[$i]["end"])." 23:59:59";
@@ -76,8 +78,9 @@
 		$a_s_ed = date("Y-m-d",$weeks_ary[$i]["end"]);
 		$sql = "select `hours` from add_subtract_hours
 			    where `date` between '$a_s_sd' and '$a_s_ed' and company=$company";
-		$sql=mysql_query($sql);
+		$sql=$conn->query($sql);
 		$add_subtract_hours_flag=false;
+        $zero_weeks = 0;
 		while($result=$sql->fetch_assoc()){
 			$add_subtract_hours_flag=true;
 			$sd_out=date("m/d/y",strtotime($sd_tms));

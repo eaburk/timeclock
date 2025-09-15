@@ -234,7 +234,7 @@ $(function () {
       var that = this;
       $(this).html("Loading...");
       $.get(
-        "ajax/create_averages.php?company=" + $("#slctCompany").val(),
+        "ajax/create_averages.php?work_week=" + $("#slctCompany option:selected").attr("wkhrs") + "&company=" + $("#slctCompany").val(),
         function (str) {
           $(that).html(str);
         }
