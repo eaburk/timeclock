@@ -4,7 +4,7 @@ $i=0;
 //get the list of punches
 $where_clause = "Where company = $company ";
 if($date_start=="unbilled"){
-	$where_clause .= " and billed=' ' ";
+	$where_clause .= " and (billed = '' or billed is null) ";
 } else if($date_start=="all_activity") {
 	$where_clause .= "";
 } else {
@@ -13,19 +13,19 @@ if($date_start=="unbilled"){
 $query = "Select time_key,time_in tms_in, time_out tms_out, date(time_in) 'date_in',time(time_in) 'time_in',time(time_out) 'time_out',date(time_out) 'date_out', billed
 			From times
 			$where_clause";
-
 $result = $conn->query($query);
-$result2 = $conn->query("select `hours`,`date` from add_subtract_hours
-            where `date` between '$date_start' and '$date_end' and company=$company order by `date`");
-while($row2=$result2->fetch_assoc()){
-  $i++;
-  echo "<tr><td width='60'>&nbsp;</td>
-      <td width='90'><a class='link_add_subtract' id='".$row2["date"]."^".$row2["hours"]."^".$company."' href='#'>".date("m-d-Y",strtotime($row2["date"]))."</a></td>";
-  echo "<td width='120'>-</td>";
-  echo "<td width='120'>-</td>";
-  echo "<td width='110' class='tot_time_class'>".$row2["hours"]."<input type='hidden' name='tot_time' value='".$row2["hours"]."'></td>";
+if($date_start != "unbilled"){
+  $result2 = $conn->query("select `hours`,`date` from add_subtract_hours
+              where `date` between '$date_start' and '$date_end' and company=$company order by `date`");
+  while($row2=$result2->fetch_assoc()){
+    $i++;
+    echo "<tr><td width='60'>&nbsp;</td>
+        <td width='90'><a class='link_add_subtract' id='".$row2["date"]."^".$row2["hours"]."^".$company."' href='#'>".date("m-d-Y",strtotime($row2["date"]))."</a></td>";
+    echo "<td width='120'>-</td>";
+    echo "<td width='120'>-</td>";
+    echo "<td width='110' class='tot_time_class'>".$row2["hours"]."<input type='hidden' name='tot_time' value='".$row2["hours"]."'></td>";
+  }
 }
-
 while($row=$result->fetch_assoc()){
   $i++;
   if($row['billed']!="")

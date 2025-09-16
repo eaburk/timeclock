@@ -4,11 +4,11 @@
 	header("Cache-Control: post-check=0, pre-check=0", false);
 	header("Pragma: no-cache");
 
-	session_start();
+	//session_start();
 
-	if($_SESSION['user'] !='eric' || $_SESSION['password'] != 'rocks!'){
-		exit;
-	}
+	//if($_SESSION['user'] !='eric' || $_SESSION['password'] != 'rocks!'){
+		//exit;
+	//}
 
 	include("../includes/db_cnx.php");
 
