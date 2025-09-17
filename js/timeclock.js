@@ -97,6 +97,7 @@ $(function () {
     $(this).attr("disabled", true);
     $("#txtClockIn").attr("disabled", true);
     $("#slctCompany").attr("disabled", true);
+    $("#btn_cancel").show();
     var d = new Date();
     d = d.formatDate("Y-m-d H:i:s");
     $("#txtClockIn").val(d);
@@ -113,6 +114,7 @@ $(function () {
     $("#btn_clock_in").attr("disabled", false);
     $(this).attr("disabled", true);
     $("#txtClockOut").val(d);
+    $("#btn_cancel").hide();
     //make an ajax call to record the info
     $.post(
       "ajax/record_punch.php",
@@ -128,6 +130,17 @@ $(function () {
 
     $("#slctCompany").attr("disabled", false);
     return false;
+  });
+
+  $("#btn_cancel").click(function(e) {
+    clearInterval(intvl);
+
+    $("#progress").hide();
+    $("#txtClockIn").val("");
+    $("#txtClockOut").val("");
+    $("#btn_clock_in").attr("disabled", false);
+    $("#btn_clock_out").attr("disabled", true);
+    $(this).hide();
   });
 
   //attach click event to the "add times" button

@@ -49,8 +49,8 @@ while($row=$result->fetch_assoc()){
   $factor = .6;
   $progress = (round($decimal_time,2) * $factor)."px";
   $progress_bar_width = (100 * $factor) . "px";
-  $progress_bar = '<div style="text-align:left;background-color:#ffffff;height:10px;width:'.$progress_bar_width.';border:1px solid black;"><div style="float:left;background-color:#000000;text-align:center;font-size:10px;font-family:\'Times New Roman\';height:10px;color:#ffffff;width:'.$progress.'">'.$interval->h."h ".$interval->i."m".'</div></div>';
-  echo "<td width='110' class='tot_time_class'>".$progress_bar."<input type='hidden' name='tot_time' value='$total_time'></td></tr>";
+  $progress_bar = '<div style="text-align:left;background-color:#ffffff;height:10px;width:'.$progress_bar_width.';border:1px solid black;"><div style="float:left;background-color:#8f8f8f;text-align:center;font-size:10px;font-family:\'Times New Roman\';height:10px;color:#ffffff;width:'.$progress.'"></div></div>';
+  echo "<td width='110' class='tot_time_class'><div style='position: relative;'><div style='position:absolute; top:0; left:25px;font-size: 10px;color: black;'>".$interval->h."h ".$interval->i."m"."</div>".$progress_bar."<input type='hidden' name='tot_time' value='$total_time'></div></td></tr>";
 }
 if($i==0){
 	echo "<tr><td colspan='5'><span style='color:#ff3300;font-weight:bold;font-size:16px;'>No Activity</span></td></tr>";

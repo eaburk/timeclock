@@ -124,6 +124,7 @@
 					<td>
 						<button style="width:100px;" id="btn_clock_in">Clock In</button><input type="text" id="txtClockIn" name="txtClockIn">&nbsp;<img style="cursor:pointer;" id="reactivate_controls" src="images/edit_16x16.png"><br>
 						<button style="width:100px;" id="btn_clock_out">Clock Out</button><input type="text" id="txtClockOut" name="txtClockOut">
+            <span id="btn_cancel" style="cursor: pointer; color: blue; font-size:10px;text-decoration:underline; display: none;">Cancel</span>
 					</td>
 					<td>
 						&nbsp;
@@ -160,16 +161,16 @@
 						<div id="range_selector" style="color:blue;text-decoration:underline;cursor:pointer;">Turn Range On</div>
 						<div id="inline"></div>
 						<div class="total-box" type="text" id="selected_total_time"></div>
-                        <table>
-                            <tr>
-                                <td><button style="width:100px;" id="btnAdd">Add Punch</button></td>
-                                <td><button id="averages" style="width:100px;">Averages</button></td>
-                            </tr>
-                            <tr>
-                                <td><button style="width:100px;" id="btnAddSubtract">Adjustments</button></td>
-                                <td><button id="unbilled_btn" style="width:100px;">Unbilled</button></td>
-                            </tr>
-                        </table>
+            <table>
+                <tr>
+                    <td><button style="width:100px;" id="btnAdd">Add Punch</button></td>
+                    <td><button id="averages" style="width:100px;">Averages</button></td>
+                </tr>
+                <tr>
+                    <td><button style="width:100px;" id="btnAddSubtract">Adjustments</button></td>
+                    <td><button id="unbilled_btn" style="width:100px;">Unbilled</button></td>
+                </tr>
+            </table>
 					</td>
 				</tr>
 			</table>
