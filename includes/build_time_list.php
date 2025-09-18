@@ -19,11 +19,12 @@ if($date_start != "unbilled"){
               where `date` between '$date_start' and '$date_end' and company=$company order by `date`");
   while($row2=$result2->fetch_assoc()){
     $i++;
-    echo "<tr><td width='60'>&nbsp;</td>
-        <td width='90'><a class='link_add_subtract' id='".$row2["date"]."^".$row2["hours"]."^".$company."' href='#'>".date("m-d-Y",strtotime($row2["date"]))."</a></td>";
-    echo "<td width='120'>-</td>";
-    echo "<td width='120'>-</td>";
-    echo "<td width='110' class='tot_time_class'>".$row2["hours"]."<input type='hidden' name='tot_time' value='".$row2["hours"]."'></td>";
+    echo "<tr>
+            <td width='60'>&nbsp;</td>
+            <td width='90'><a class='link_add_subtract' id='".$row2["date"]."^".$row2["hours"]."^".$company."' href='#'>".date("m-d-Y",strtotime($row2["date"]))."</a></td>";
+    echo "  <td width='120'>-</td>";
+    echo "  <td width='120'>-</td>";
+    echo "  <td width='110' class='tot_time_class'>".$row2["hours"]."<input type='hidden' name='tot_time' value='".$row2["hours"]."'></td>";
   }
 }
 while($row=$result->fetch_assoc()){

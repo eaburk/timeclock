@@ -26,52 +26,51 @@
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
 		<title>Time Clock</title>
-       <link rel="stylesheet" href="//ajax.googleapis.com/ajax/libs/jqueryui/1.11.1/themes/blitzer/jquery-ui.css" />
-        <style>
-            .date-range-selected > .ui-state-active,
-            .date-range-selected > .ui-state-default {
-                background: none;
-                background-color: lightsteelblue;
-            }
+    <link rel="stylesheet" href="//ajax.googleapis.com/ajax/libs/jqueryui/1.11.1/themes/blitzer/jquery-ui.css" />
+    <style>
+      .date-range-selected > .ui-state-active,
+      .date-range-selected > .ui-state-default {
+          background: none;
+          background-color: lightsteelblue;
+      }
 
-            .ui-datepicker {
-                width: 12em;
-                padding: .2em .2em 0;
-                display: none;
-            }
-            .ui-datepicker-month,.ui-datepicker-year {
-                width: 49%;
-                font-size: .9em;
-            }
-            .ui-datepicker table {
-                width: 100%;
-                font-size: .8em;
-                border-collapse: collapse;
-                margin: 0 0 .4em;
-            }
-            .ui-datepicker th {
-                padding: .3em .1em;
-                text-align: center;
-                font-weight: bold;
-                border: 0;
-            }
-            .ui-datepicker td span,
-            .ui-datepicker td a {
-                display: block;
-                padding: .1em;
-                text-align: right;
-                text-decoration: none;
-            }
-            .ui-dialog{
-                font-size:12px;
-            }
+      .ui-datepicker {
+          width: 12em;
+          padding: .2em .2em 0;
+          display: none;
+      }
+      .ui-datepicker-month,.ui-datepicker-year {
+          width: 49%;
+          font-size: .9em;
+      }
+      .ui-datepicker table {
+          width: 100%;
+          font-size: .8em;
+          border-collapse: collapse;
+          margin: 0 0 .4em;
+      }
+      .ui-datepicker th {
+          padding: .3em .1em;
+          text-align: center;
+          font-weight: bold;
+          border: 0;
+      }
+      .ui-datepicker td span,
+      .ui-datepicker td a {
+          display: block;
+          padding: .1em;
+          text-align: right;
+          text-decoration: none;
+      }
+      .ui-dialog{
+          font-size:12px;
+      }
 
-			.dp-highlight .ui-state-default {
-				background: #484;
-				color: #FFF;
-			}
-
-        </style>
+      .dp-highlight .ui-state-default {
+        background: #484;
+        color: #FFF;
+      }
+    </style>
 		<script src="js/jquery.js"></script>
     <script src="js/jquery.ui.js"></script>
 		<script src="js/formatDate.js"></script>
@@ -79,18 +78,64 @@
 		<script src="js/jquery.cookie.js"></script>
 		<script src="js/timeclock.js?ver=<?= rand(); ?>"></script>
 		<style>
-            .total-box{
-                width:190px;
-                color:red;
-                border: 1px solid black;
-                background-color:#dcdcdc;
-                margin:10px;
-                font-size: 12px;
-            }
+      .total-box{
+        width:190px;
+        color:red;
+        border: 1px solid black;
+        background-color:#dcdcdc;
+        margin:10px;
+        font-size: 12px;
+      }
+
+      #div_time_list {
+        background: rgba(255, 166, 0, 0.05);
+        border:1px solid #dcdcdc;
+        width:500px;
+        height:300px;
+        overflow:scroll;
+        border-radius: 5px 5px;
+      }
+
+      #container {
+        margin-left:auto;
+        margin-right:auto;
+        width:750px;
+        border: 1px solid #dcdcdc;
+        border-radius: 5px 5px;
+        box-shadow: 0 0 3px 1px #8a8a8a;
+        padding: 10px;
+      }
+      body: {
+        background-color: #f5f5f5;
+      }
+
+      #progress {
+        display:none;
+        margin-top:5px;
+        border:1px solid black;
+        border-radius:5px 5px;
+        font-family:Courier;
+        font-size:12px;
+        background-color:#CD0505;
+        color:#FFFFFF;
+      }
+
+      button {
+        background: #cc0000;
+        color: white;
+        border: none;
+        border-radius: 2px;
+        box-shadow: 0 0 1px #000000;
+        margin: 2px;
+        padding: 2px;
+      }
+      button:hover {
+        background: #a10000;
+      }
 		</style>
 	</head>
 	<body>
-		<div style="margin-left:auto; margin-right:auto; width:750px; border: 1px solid black;">
+		<div id="container">
 			<table>
 				<tr>
 					<td colspan="2" align="center"><span style="font-weight:bold;font-size:24px">Time Clock</span></td>
@@ -149,13 +194,13 @@
 								</thead>
 							</table>
 						</div>
-						<div id="div_time_list" style="border:1px solid black; width:500px; height:300px; overflow:scroll;">
+						<div id="div_time_list">
 							<table width="100%" id="list_times" border="0" cellspacing="0" cellpadding="0">
 								<tbody align="center">
 								</tbody>
 							</table>
 						</div>
-						<div title="Click to see overtime worked" id="progress" style='display:none;margin-top:5px;border:1px solid black;border-radius:5px 5px; font-family:Courier;font-size:12px;background-color:#CD0505;color:#FFFFFF'>&nbsp;</div>
+						<div title="Click to see overtime worked" id="progress">&nbsp;</div>
 					</td>
 					<td valign="top">
 						<div id="range_selector" style="color:blue;text-decoration:underline;cursor:pointer;">Turn Range On</div>
