@@ -132,6 +132,10 @@
       button:hover {
         background: #a10000;
       }
+      button:disabled {
+        background: #ffffff;
+        color: #000000;
+      }
 		</style>
 	</head>
 	<body>
